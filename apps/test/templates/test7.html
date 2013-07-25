@@ -1,0 +1,14 @@
+{{extend "test.html"}}
+
+{{block content}}
+<div ng-init="list = ['Chrome', 'Safari', 'Firefox', 'IE'] ">
+   <input ng-model="list" ng-list> <br>
+   <input ng-model="list" ng-list> <br>
+   <pre>list=[[list]]</pre> <br>
+   <ol>
+     <li ng-repeat="item in list">
+       [[item]]
+     </li>
+   </ol>
+ </div>
+{{end content}}

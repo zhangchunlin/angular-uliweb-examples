@@ -1,0 +1,19 @@
+{{extend "test.html"}}
+
+{{block content}}
+<div ng-controller="MyCtrl">
+  Hello {%name%}!
+  <button ng-click="action()">
+    OK
+  </button>
+</div>
+<script>
+function MyCtrl($scope) {
+  $scope.action = function() {
+    $scope.name = 'OK';
+  }
+
+  $scope.name = 'World';
+}
+</script>
+{{end content}}

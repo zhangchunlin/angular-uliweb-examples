@@ -1,0 +1,32 @@
+{{extend "test.html"}}
+
+{{block stylecss}}
+<style type="text/css">
+.show-scope .doc-example-live.ng-scope,
+.show-scope .doc-example-live .ng-scope  {
+  border: 1px solid red;
+  margin: 3px;
+}
+</style>
+{{end stylecss}}
+
+{{block content}}
+<div ng-controller="GreetCtrl">
+  Hello {%name%}!
+</div>
+<div ng-controller="ListCtrl">
+  <ol>
+    <li ng-repeat="name in names">{%name%}</li>
+  </ol>
+</div>
+
+<script>
+function GreetCtrl($scope) {
+  $scope.name = 'World';
+}
+
+function ListCtrl($scope) {
+  $scope.names = ['Igor', 'Misko', 'Vojta'];
+}
+</script>
+{{end content}}

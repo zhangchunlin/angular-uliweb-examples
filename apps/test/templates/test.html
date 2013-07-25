@@ -1,0 +1,18 @@
+<!doctype html>
+<html ng-app="test">
+  <head>
+    {{block stylecss}}
+    {{end stylecss}}
+  </head>
+  <body>
+    {{block content}}
+    {{end content}}
+    {{use "angularjs"}}
+    <script>
+    var app = angular.module('test', []).config(function ($interpolateProvider) {
+        $interpolateProvider.startSymbol('{%');
+        $interpolateProvider.endSymbol('%}');
+    }); 
+    </script>
+  </body>
+</html>
