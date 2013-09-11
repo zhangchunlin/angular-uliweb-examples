@@ -19,7 +19,9 @@
     <li ng-repeat="name in names">{%name%}</li>
   </ol>
 </div>
+{{end content}}
 
+{{block script}}
 <script>
 function GreetCtrl($scope) {
   $scope.name = 'World';
@@ -29,4 +31,4 @@ function ListCtrl($scope) {
   $scope.names = ['Igor', 'Misko', 'Vojta'];
 }
 </script>
-{{end content}}
+{{end script}}

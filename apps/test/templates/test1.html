@@ -15,5 +15,13 @@
     <hr>
     <b>Total:</b> {%qty * cost | currency%}
 </div>
-<script src="static/script1.js"></script>
 {{end content}}
+
+{{block script}}
+<script>
+function InvoiceCntl($scope) {
+    $scope.qty = 1;
+    $scope.cost = 19.95;
+}
+</script>
+{{end script}}

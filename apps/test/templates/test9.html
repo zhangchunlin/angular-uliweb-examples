@@ -1,0 +1,9 @@
+{{extend "test.html"}}
+
+{{block content}}
+<div ng-init="list = ['Chrome', 'Safari', 'Firefox', 'IE'] ">
+  Number formatting: {% 1234567890 | number %} <br>
+  array filtering <input ng-model="predicate"> 
+  {% list | filter:predicate | json %}
+</div>
+{{end content}}

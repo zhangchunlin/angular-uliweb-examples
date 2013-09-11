@@ -1,0 +1,20 @@
+{{extend "test.html"}}
+
+{{block content}}
+<div ng-controller="Ctrl1">
+  Hello <input ng-model='name'> <hr/>
+  &ltspan ng:bind="name"&gt <span ng:bind="name"></span> <br/>
+  &ltspan ng_bind="name"&gt <span ng_bind="name"></span> <br/>
+  &ltspan ng-bind="name"&gt <span ng-bind="name"></span> <br/>
+  &ltspan data-ng-bind="name"&gt <span data-ng-bind="name"></span> <br/>
+  &ltspan x-ng-bind="name"&gt <span x-ng-bind="name"></span> <br/>
+</div>
+{{end content}}
+
+{{block script}}
+<script>
+function Ctrl1($scope) {
+  $scope.name = 'angular';
+}
+</script>
+{{end script}}

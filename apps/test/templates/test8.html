@@ -1,0 +1,43 @@
+{{extend "test.html"}}
+
+{{block stylecss}}
+<style type="text/css">
+div[contentEditable] {
+  cursor: pointer;
+  background-color: #D0D0D0;
+  margin-bottom: 1em;
+  padding: 1em;
+}
+</style>
+{{end stylecss}}
+
+{{block content}}
+<div contentEditable="true" ng-model="content">Edit Me</div>
+<pre>model = {%content%}</pre>
+{{end content}}
+
+{{block script}}
+<script>
+app.directive('contenteditable', function() {
+  return {
+    require: 'ngModel',
+    link: function(scope, elm, attrs, ctrl) {
+      // view -> model
+      elm.bind('blur', function() {
+        scope.$apply(function() {
+          ctrl.$setViewValue(elm.html());
+        });
+      });
+
+      // model -> view
+      ctrl.$render = function(value) {
+        elm.html(value);
+      };
+ 
+      // load init value from DOM
+      ctrl.$setViewValue(elm.html());
+    }
+  };
+});
+</script>
+{{end script}}

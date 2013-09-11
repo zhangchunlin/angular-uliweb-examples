@@ -1,44 +1,42 @@
-<!doctype html>
-<html ng-app="drag">
-  <head>
+{{extend "test.html"}}
 
-  </head>
-  <body>
-    <span draggable>Drag ME</span>
-    {{use "angularjs"}}
-    <script>
-    angular.module('drag', []).
-    directive('draggable', function($document) {
-        var startX=0, startY=0, x = 0, y = 0;
-        return function(scope, element, attr) {
-          element.css({
-           position: 'relative',
-           border: '1px solid red',
-           backgroundColor: 'lightgrey',
-           cursor: 'pointer'
-          });
-          element.bind('mousedown', function(event) {
-            startX = event.screenX - x;
-            startY = event.screenY - y;
-            $document.bind('mousemove', mousemove);
-            $document.bind('mouseup', mouseup);
-          });
-    
-          function mousemove(event) {
-            y = event.screenY - startY;
-            x = event.screenX - startX;
-            element.css({
-              top: y + 'px',
-              left:  x + 'px'
-            });
-          }
-    
-          function mouseup() {
-            $document.unbind('mousemove', mousemove);
-            $document.unbind('mouseup', mouseup);
-          }
-        }
-     });
-    </script>
-  </body>
-</html>
+{{block content}}
+<span draggable>Drag ME</span>
+{{end content}}
+
+{{block script}}
+<script>
+angular.module('test', []).
+directive('draggable', function($document) {
+    var startX=0, startY=0, x = 0, y = 0;
+    return function(scope, element, attr) {
+      element.css({
+       position: 'relative',
+       border: '1px solid red',
+       backgroundColor: 'lightgrey',
+       cursor: 'pointer'
+      });
+      element.bind('mousedown', function(event) {
+        startX = event.screenX - x;
+        startY = event.screenY - y;
+        $document.bind('mousemove', mousemove);
+        $document.bind('mouseup', mouseup);
+      });
+
+      function mousemove(event) {
+        y = event.screenY - startY;
+        x = event.screenX - startX;
+        element.css({
+          top: y + 'px',
+          left:  x + 'px'
+        });
+      }
+
+      function mouseup() {
+        $document.unbind('mousemove', mousemove);
+        $document.unbind('mouseup', mouseup);
+      }
+    }
+ });
+</script>
+{{end script}}

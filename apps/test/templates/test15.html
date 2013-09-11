@@ -1,0 +1,20 @@
+{{extend "test.html"}}
+
+{{block content}}
+<div class="example2" ng-controller="Cntl1">
+   Name: <input ng-model="name" type="text"/>
+   <button ng-click="greet()">Greet</button>
+ </div>
+{{end content}}
+
+{{block script}}
+<script>
+function Cntl1($window, $scope){
+  $scope.name = 'World';
+
+  $scope.greet = function() {
+    ($window.mockWindow || $window).alert('Hello ' + $scope.name);
+  }
+}
+</script>
+{{end script}}

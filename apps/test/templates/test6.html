@@ -7,6 +7,9 @@
     OK
   </button>
 </div>
+{{end content}}
+
+{{block script}}
 <script>
 function MyCtrl($scope) {
   $scope.action = function() {
@@ -16,4 +19,4 @@ function MyCtrl($scope) {
   $scope.name = 'World';
 }
 </script>
-{{end content}}
+{{end script}}
