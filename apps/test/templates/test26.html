@@ -1,0 +1,38 @@
+{{extend "test.html"}}
+
+{{block stylecss}}
+<style type="text/css">
+</style>
+{{end stylecss}}
+
+{{block content}}
+<div ng-controller="Ctrl">
+   <input ng-model="greeting" type="greeting"><br>
+   No filter: {%greeting%}<br>
+   Reverse: {%greeting|reverse%}<br>
+   Reverse + uppercase: {%greeting|reverse:true%}<br>
+</div>
+{{end content}}
+
+{{block script}}
+<script>
+app.
+  filter('reverse', function() {
+    return function(input, uppercase) {
+      var out = "";
+      for (var i = 0; i < input.length; i++) {
+        out = input.charAt(i) + out;
+      }
+      // conditional based on optional argument
+      if (uppercase) {
+        out = out.toUpperCase();
+      }
+      return out;
+    }
+  });
+ 
+function Ctrl($scope) {
+  $scope.greeting = 'hello';
+}
+</script>
+{{end script}}

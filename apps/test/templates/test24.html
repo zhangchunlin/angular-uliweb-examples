@@ -1,0 +1,39 @@
+{{extend "test.html"}}
+
+{{block stylecss}}
+<style type="text/css">
+/* remove .doc-example-live in jsfiddle */
+.doc-example-live .ng-scope {
+  border: 1px dashed red;
+}
+</style>
+{{end stylecss}}
+
+{{block content}}
+<div ng-controller="EmployeeController">
+   Manager: {%employee.name%} [ {%department%} ]<br>
+   Reports:
+     <ul>
+       <li ng-repeat="employee in employee.reports">
+         {%employee.name%} [ {%department%} ]
+       </li>
+     </ul>
+   <hr>
+   {%greeting%}
+</div>
+{{end content}}
+
+{{block script}}
+<script>
+function EmployeeController($scope) {
+  $scope.department = 'Engineering';
+  $scope.employee = {
+    name: 'Joe the Manager',
+    reports: [
+      {name: 'John Smith'},
+      {name: 'Mary Run'}
+    ]
+  };
+}
+</script>
+{{end script}}
