@@ -1,4 +1,4 @@
-angular-uliweb-example
+angular-uliweb-examples
 ======================
 
 Angularjs developer guide example using uliweb
@@ -13,6 +13,6 @@ related link
 usage
 ======================
 * Install uliweb & plugs
-* get the source code of angular-uliweb-example
-* run 'uliweb develop' in angular-uliweb-example directory
+* get the source code of angular-uliweb-examples
+* run 'uliweb develop' in angular-uliweb-examples directory
 * visit http://localhost:8000
