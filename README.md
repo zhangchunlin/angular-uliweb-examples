@@ -3,7 +3,7 @@ angular-uliweb-examples
 
 Angularjs developer guide example using uliweb
 
-related link
+links
 ======================
 * [Angularjs Developer Guide 中文版](https://gitcafe.com/Angularjs/Angularjs-Developer-Guide)
 * [Angularjs Developer Guide English Version](http://docs.angularjs.org/guide)
